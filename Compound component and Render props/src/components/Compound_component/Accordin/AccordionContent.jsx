@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAccordionContext } from './Accordion';
-import { useAccordionItemContent } from '../AccordionItem';
+import { useAccordionItemContent } from './AccordionItem';
 
 function AccordionContent({children}) {
     const {openerId} = useAccordionContext();
