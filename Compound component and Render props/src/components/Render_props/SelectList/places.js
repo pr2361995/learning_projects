@@ -1,8 +1,8 @@
-import savannaImg from '../../assets/african-savanna.jpg';
-import amazonImg from '../../assets/amazon-river.jpg';
-import caribbeanImg from '../../assets/caribbean-beach.jpg';
-import desertImg from '../../assets/desert-dunes.jpg';
-import forestImg from '../../assets/forest-waterfall.jpg';
+import savannaImg from '../../../assets/african-savanna.jpg';
+import amazonImg from '../../../assets/amazon-river.jpg';
+import caribbeanImg from '../../../assets/caribbean-beach.jpg';
+import desertImg from '../../../assets/desert-dunes.jpg';
+import forestImg from '../../../assets/forest-waterfall.jpg';
 
 export const PLACES = [
   {

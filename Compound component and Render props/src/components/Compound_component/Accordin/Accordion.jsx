@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import {AccordionItem} from "../AccordionItem";
-import AccordionTittle from "../AccordionTittle";
+import {AccordionItem} from "./AccordionItem";
+import AccordionTittle from "./AccordionTittle";
 import AccordionContent from "./AccordionContent";
 
 const AccordionContext = createContext({
