@@ -4,12 +4,11 @@ import { Route } from 'react-router-dom';
 import Navigation from './components/Nav/Navigation';
 import ProductsPage from './containers/Products';
 import FavoritesPage from './containers/Favorites';
-import ProductContextProvider from './context/product-context';
-
+import configProductStore from './hooks-store/product-store';
+configProductStore();
 const App = props => {
   
   return (
-    <ProductContextProvider>
       <React.Fragment>
         <Navigation />
         <main>
@@ -17,7 +16,6 @@ const App = props => {
           <Route path="/favorites" component={FavoritesPage} />
         </main>
       </React.Fragment>
-    </ProductContextProvider>
   );
 };
 

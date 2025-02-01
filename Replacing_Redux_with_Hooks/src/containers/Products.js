@@ -3,11 +3,10 @@ import React from 'react';
 
 import ProductItem from '../components/Products/ProductItem';
 import './Products.css';
-import { useProductContext } from '../context/product-context';
+import { useStore } from '../hooks-store/store';
 
 const Products = props => {
-  const {products} = useProductContext();
-  console.log("product",products);
+  const {products} = useStore()[0];
   // const productList = useSelector(state => state.shop.products);
   return (
     <ul className="products-list">
