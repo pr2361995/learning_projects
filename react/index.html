@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script defer src="./app.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Learning</title>
 </head>
 <body>
     <div id="root"></div>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script>
-        const header = React.createElement("h1",{},"Hello world");
-        const root = ReactDOM.createRoot(document.getElementById("root"))
-        root.render(header)
-    </script>
 </body>
 </html>
