@@ -44,4 +44,9 @@
 41. inversion of control
 42. optional chaining (? & !)
 43. promise chaining
-44. async - always return promise even you return primitive values await
+44. async - always return promise even you return primitive values / await - always inside aysnc function and front of promise add await and it is resovle the promise / suspend the function execution
+45. Promise.race() - returns the first settled promise (fulfilled or rejected) → Best for timeouts.
+Promise.any() - returns the first fulfilled promise (ignores failures) → Best for fastest successful API call.
+Promise.allSettled() - waits for all promises to settle and returns their status → Best for logging all results.
+Promise.all()- Parallel API Calls: When you need multiple async operations to all succeed, and any failure should immediately stop the execution.
+Bulk Data Processing: When multiple files or resources are being processed, and you want to handle all at once.
