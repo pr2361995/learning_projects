@@ -9,7 +9,6 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({ totalItems, itemsPerPage, currentPage,onPageChange }) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
-  console.log("totalItems : ",totalItems, " itemsPerPage : ",itemsPerPage, " currentPage : ",currentPage,"totalPages : ",totalPages);
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
