@@ -9,6 +9,7 @@ import { getNestedValue, NestedKeys, sortByNestedKey } from '../../Utils/utils';
 import Pagination from '../../Components/pagination/Pagination';
 import Sort from '../../Components/Sorting/Sort';
 import ErrorPage from '../../Components/ErrorPage/ErrorPage';
+import LoadingOverlay from '../../Components/Loading/LoadingOverlay';
 
 type InputEvent = ChangeEvent<HTMLInputElement>;
 
@@ -80,6 +81,7 @@ function Dashboard() {
 
     return (
         <>
+            {indicator === "loading" && <LoadingOverlay/>}
             <table className={classes.table}>
                 <thead>
                     <tr className={classes.header}>

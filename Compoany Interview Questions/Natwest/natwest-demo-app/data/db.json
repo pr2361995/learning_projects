@@ -65,7 +65,7 @@
         "accountType": "Current",
         "branch": "Bangalore City Branch",
         "ifscCode": "TCSB0000456",
-        "balance": 500000.00,
+        "balance": 500000,
         "currency": "INR",
         "openedDate": "2018-06-15",
         "status": "Active",
@@ -104,7 +104,7 @@
         "accountType": "Savings",
         "branch": "Mumbai Central Branch",
         "ifscCode": "TCSB0000789",
-        "balance": 15000.00,
+        "balance": 15000,
         "currency": "INR",
         "openedDate": "2021-01-20",
         "status": "Inactive",
@@ -143,7 +143,7 @@
         "accountType": "Savings",
         "branch": "Bangalore South Branch",
         "ifscCode": "TCSB0000345",
-        "balance": 32000.00,
+        "balance": 32000,
         "currency": "INR",
         "openedDate": "2019-09-12",
         "status": "Active",
@@ -182,7 +182,7 @@
         "accountType": "Current",
         "branch": "Ahmedabad Main Branch",
         "ifscCode": "TCSB0000567",
-        "balance": 48000.50,
+        "balance": 48000.5,
         "currency": "INR",
         "openedDate": "2017-04-18",
         "status": "Active",
@@ -221,7 +221,7 @@
         "accountType": "Savings",
         "branch": "Kolkata Central Branch",
         "ifscCode": "TCSB0000678",
-        "balance": 60000.00,
+        "balance": 60000,
         "currency": "INR",
         "openedDate": "2015-12-01",
         "status": "Closed",
@@ -299,7 +299,7 @@
         "accountType": "Current",
         "branch": "Delhi Main Branch",
         "ifscCode": "TCSB0000890",
-        "balance": 150000.00,
+        "balance": 150000,
         "currency": "INR",
         "openedDate": "2016-07-22",
         "status": "Active",
@@ -338,7 +338,7 @@
         "accountType": "Savings",
         "branch": "Hyderabad City Branch",
         "ifscCode": "TCSB0000901",
-        "balance": 35000.00,
+        "balance": 35000,
         "currency": "INR",
         "openedDate": "2023-02-05",
         "status": "Active",
@@ -349,45 +349,6 @@
         "name": "Rajesh Singh",
         "relationship": "Father",
         "contact": "+91-91234-56783"
-      }
-    },
-    {
-      "id": "CUST012456",
-      "firstName": "Rohan",
-      "lastName": "Mehra",
-      "dateOfBirth": "1991-06-20",
-      "gender": "Male",
-      "contactDetails": {
-        "email": "rohan.mehra@example.com",
-        "phone": "+91-95678-90123",
-        "address": {
-          "street": "78 Residency Road",
-          "city": "Pune",
-          "state": "Maharashtra",
-          "postalCode": "411001",
-          "country": "India"
-        }
-      },
-      "identification": {
-        "idType": "Aadhar",
-        "idNumber": "2345-6789-0123"
-      },
-      "accountDetails": {
-        "accountNumber": "889900112233",
-        "accountType": "Savings",
-        "branch": "Pune Central Branch",
-        "ifscCode": "TCSB0000124",
-        "balance": 42000.00,
-        "currency": "INR",
-        "openedDate": "2020-09-14",
-        "status": "Inactive",
-        "accountStatus": "Dormant"
-      },
-      "kycStatus": "Verified",
-      "nominee": {
-        "name": "Anita Mehra",
-        "relationship": "Mother",
-        "contact": "+91-93456-78902"
       }
     }
   ]
