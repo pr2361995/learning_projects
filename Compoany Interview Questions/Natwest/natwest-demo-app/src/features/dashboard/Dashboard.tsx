@@ -117,7 +117,8 @@ function Dashboard() {
             <Pagination 
                 totalItems={paging.total} 
                 itemsPerPage={paging.pageSize} 
-                currentPage={paging.pages} 
+                currentPage={paging.pages}
+                onPageChange={(params: string) => dispatch(fetchCustomers(params))}
             />
         </>
     )

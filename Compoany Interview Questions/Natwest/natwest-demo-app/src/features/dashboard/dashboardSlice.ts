@@ -68,7 +68,7 @@ import { NestedKeys } from "../../Utils/utils";
         contactDetails: ContactDetails;
         identification: Identification;
         accountDetails: AccountDetails;
-        kycStatus: 'Verified' | 'Pending' | 'Rejected';  // Common KYC statuses
+        kycStatus: 'Verified' | 'Pending' | 'Rejected';
         nominee: Nominee;
     }
 
@@ -89,13 +89,13 @@ import { NestedKeys } from "../../Utils/utils";
     type UnionNumbers = number | null
 
     export interface GetResponseType {
-        first:UnionNumbers,
-        prev:UnionNumbers,
-        next:UnionNumbers,
-        last:UnionNumbers,
-        pages:UnionNumbers,
-        items:UnionNumbers,
-        data:Customer[]
+        first   :   UnionNumbers,
+        prev    :   UnionNumbers,
+        next    :   UnionNumbers,
+        last    :   UnionNumbers,
+        pages   :   UnionNumbers,
+        items   :   UnionNumbers,
+        data    :   Customer[]
     }
 
     const initialState : RootData = {
