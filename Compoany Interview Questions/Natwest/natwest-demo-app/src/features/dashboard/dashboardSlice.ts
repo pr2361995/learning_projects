@@ -103,7 +103,7 @@ import { NestedKeys } from "../../Utils/utils";
             paging : {
                 isPrevious  : null,
                 isNext      : null,
-                pageSize    : 2,
+                pageSize    : 4,
                 pages       : 1,
                 total       : 0
             },

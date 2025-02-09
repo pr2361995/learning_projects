@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./textFilter.module.css";
 
 const TextFilter : React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
     return (
@@ -6,7 +7,7 @@ const TextFilter : React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (prop
         {...props}
         placeholder="Filter..."
         type="search"
-        className="border p-1 rounded"
+        className={`${classes.inputbox} ${props.className}`}
       />
     );
   }

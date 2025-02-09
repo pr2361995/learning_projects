@@ -5,10 +5,10 @@ import { fetchCustomers } from './getCustomersAPI';
 import classes from './dashboard.module.css'
 import { removeCustomers } from './removeCustomerAPI';
 import { MdDelete } from "react-icons/md";
-import { FaSortUp, FaSortDown } from "react-icons/fa";
 import TextFilter from '../../Components/dashboard/TextFilter';
 import { getCurrentPageNumber, getNestedValue, NestedKeys, sortByNestedKey } from '../../Utils/utils';
 import Pagination from '../../Components/pagination/Pagination';
+import Sort from '../../Components/dashboard/Sort';
 
 
 type InputEvent = ChangeEvent<HTMLInputElement>;
@@ -44,24 +44,26 @@ function Dashboard() {
                         <TextFilter 
                             value={assignValue(userTableDisplayer.accHolderName)} 
                             onChange={(e:InputEvent) => setFilter({name:userTableDisplayer.accHolderName,term:e.target.value})}/>
-                        <span onClick={()=>setSortByColumn(prev => ({name:userTableDisplayer.accHolderName,isASC: !prev.isASC}))}>
-                            <FaSortUp />
-                            <FaSortDown/>
-                        </span>
+                        <Sort 
+                            className={sortByColumn.name === userTableDisplayer.accHolderName ? 'active' : ''} 
+                            handleSort={()=> setSortByColumn(prev => ({name:userTableDisplayer.accHolderName,isASC: !prev.isASC}))}/>
+                        
                     </th>
                     <th className={classes.headcell}>
                         <TextFilter 
                             value={assignValue(userTableDisplayer.accHolderAddress)} 
                             onChange={(e:InputEvent) => setFilter({name:userTableDisplayer.accHolderAddress,term:e.target.value})}/>
-                        <span onClick={()=>setSortByColumn(prev => ({name:userTableDisplayer.accHolderAddress,isASC: !prev.isASC}))}>
-                            <FaSortUp />
-                            <FaSortDown/>
-                        </span>
+                        <Sort 
+                            className={sortByColumn.name === userTableDisplayer.accHolderAddress ? 'active' : ''} 
+                            handleSort={()=> setSortByColumn(prev => ({name:userTableDisplayer.accHolderAddress,isASC: !prev.isASC}))}/>
                     </th>
                     <th className={classes.headcell}>
                         <TextFilter 
                             value={assignValue(userTableDisplayer.accNumber)} 
                             onChange={(e:InputEvent) => setFilter({name:userTableDisplayer.accNumber,term:e.target.value})}/>
+                        <Sort 
+                            className={sortByColumn.name === userTableDisplayer.accNumber ? 'active' : ''} 
+                            handleSort={()=> setSortByColumn(prev => ({name:userTableDisplayer.accNumber,isASC: !prev.isASC}))}/>
                         
                     </th>
                     <th className={classes.headcell}>
@@ -75,7 +77,9 @@ function Dashboard() {
                             <option>Inactive</option> 
                             <option>Closed</option> 
                         </select> */}
-                        
+                        <Sort 
+                            className={sortByColumn.name === userTableDisplayer.accType ? 'active' : ''} 
+                            handleSort={()=> setSortByColumn(prev => ({name:userTableDisplayer.accType,isASC: !prev.isASC}))}/>
                     </th>
                     <th className={classes.headcell}>
                         <TextFilter 
@@ -90,7 +94,9 @@ function Dashboard() {
                             <option>Dormant</option> 
                             <option>Closed</option> 
                         </select> */}
-                        
+                        <Sort 
+                            className={sortByColumn.name === userTableDisplayer.accStatus ? 'active' : ''} 
+                            handleSort={()=> setSortByColumn(prev => ({name:userTableDisplayer.accStatus,isASC: !prev.isASC}))}/>
                     </th>
                     <th className={classes.headcell}>Action</th>
                 </tr>
