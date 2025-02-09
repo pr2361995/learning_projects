@@ -14,14 +14,9 @@
 }
 
 .sorticons svg {
-    color: #555; /* Default icon color */
-    transition: color 0.2s ease;
+    transition: #007bff 0.2s ease;
 }
 
 .sorticons svg:hover {
     color: #007bff; /* Blue when hovered */
-}
-
-.sorticons.active svg {
-    color: #007bff; /* Active sort color */
 }

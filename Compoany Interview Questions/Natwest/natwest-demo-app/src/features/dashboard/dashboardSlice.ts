@@ -77,16 +77,19 @@ import { NestedKeys } from "../../Utils/utils";
         customers : Customer[];
         indicator : 'loading' | 'success' | 'failure' | 'idle';
         paging    : {
-            isPrevious : UnionNumbers;
-            isNext : UnionNumbers;
+            currentPage:number;
+            // isPrevious : UnionNumbers;
+            // isNext : UnionNumbers;
             pageSize : number;
-            pages  : number;
-            total  : number;
+            totalpages  : number;
+            totalItems  : number;
         };
         error     : string;
     }
 
     export type UnionNumbers = number | null
+
+    export type CustomerAPIResponse = GetResponseType | Customer[];
 
     export interface GetResponseType {
         first   :   UnionNumbers,
@@ -95,18 +98,21 @@ import { NestedKeys } from "../../Utils/utils";
         last    :   UnionNumbers,
         pages   :   UnionNumbers,
         items   :   UnionNumbers,
-        data    :   Customer[]
+        data    :   Customer[],
+    }
+
+    const defaultPaging = {
+        currentPage      : 1,
+        // isPrevious  : null,
+        // isNext      : null,
+        pageSize         : 4,
+        totalpages       : 0,
+        totalItems       : 0
     }
 
     const initialState : RootData = {
             customers : [],
-            paging : {
-                isPrevious  : null,
-                isNext      : null,
-                pageSize    : 4,
-                pages       : 1,
-                total       : 0
-            },
+            paging : defaultPaging,
             indicator : "idle",
             error     : ''
     };
@@ -129,7 +135,9 @@ const customersSlice = createSlice({
     name : "customers",
     initialState,
     reducers : {
-       
+        setPage: (state, action) => {
+            state.paging.currentPage = action.payload;
+        },
     },
     extraReducers:(builder)=>{
         builder
@@ -137,13 +145,25 @@ const customersSlice = createSlice({
             state.indicator = 'loading'   
             state.error = ''; 
         })
-        .addCase(fetchCustomers.fulfilled,(state,action : PayloadAction<GetResponseType>)=>{
+        .addCase(fetchCustomers.fulfilled,(state,action : PayloadAction<CustomerAPIResponse>)=>{
             state.indicator = "success"
-            state.paging.isNext = action.payload.next
-            state.paging.isPrevious = action.payload.prev
-            state.paging.pages = action.payload.pages ? action.payload.pages : 1 ;
-            state.paging.total = action.payload.items ? action.payload.items : 0; 
-            state.customers = action.payload.data;
+            if('next' in action.payload){
+                state.customers = action.payload.data;
+                state.paging = {
+                    ...state.paging,
+                    // isNext : action.payload.next,
+                    // isPrevious : action.payload.prev,
+                    totalpages : action.payload.pages ? action.payload.pages : 1,
+                    totalItems : action.payload.items ? action.payload.items : 0 
+                }
+            }else{
+                state.customers = action.payload;
+                state.paging = {
+                    ...state.paging,
+                    totalpages : Math.ceil(action.payload.length / state.paging.pageSize),
+                    totalItems : action.payload.length
+                }
+            }
         })
         .addCase(fetchCustomers.rejected,(state,action) =>{
             state.indicator = "failure"    
@@ -155,7 +175,8 @@ const customersSlice = createSlice({
         })
         .addCase(removeCustomers.fulfilled,(state,action : PayloadAction<string>)=>{
             state.indicator = "success"
-            state.customers.filter(customer => customer.id !== action.payload);
+            const newList = state.customers.filter(customer => customer.id !== action.payload);
+            state.customers = newList;
         })
         .addCase(removeCustomers.rejected,(state,action) =>{
             state.indicator = "failure"    
@@ -164,7 +185,7 @@ const customersSlice = createSlice({
     } 
 })
 
-export const action = customersSlice.actions;
+export const {setPage} = customersSlice.actions;
 
 export default customersSlice.reducer;
 

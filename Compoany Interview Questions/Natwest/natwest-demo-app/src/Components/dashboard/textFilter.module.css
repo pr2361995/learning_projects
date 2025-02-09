@@ -6,10 +6,12 @@
     font-size: 16px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     outline: none;
+    background: white;
+    color: #000;
   }
   
   .inputbox::placeholder {
-    color: #aaa;
+    color: rgba(0, 0, 0, 0.7);
     font-style: italic;
   }
   
