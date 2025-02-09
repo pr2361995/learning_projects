@@ -1,4 +1,3 @@
-import React from 'react'
 import classes from "./Sort.module.css";
 import { FaSortUp, FaSortDown } from "react-icons/fa";
 

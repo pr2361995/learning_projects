@@ -118,7 +118,7 @@ function Dashboard() {
                                         </td>
                             })}
                             <td className={classes.datacell}>
-                                <span style={{ cursor: "pointer" }}>
+                                <span style={{ cursor: "pointer" }} title='Remove'>
                                     <MdDelete color='#009879' onClick={() => handleDelete(customerDetail.id)} />
                                 </span>
                             </td>

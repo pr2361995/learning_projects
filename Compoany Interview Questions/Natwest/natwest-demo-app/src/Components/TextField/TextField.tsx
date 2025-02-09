@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./TextField.module.css";
 
 const TextField : React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
