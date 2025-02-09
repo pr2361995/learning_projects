@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from "./pagination.module.css";
+import classes from "./Pagination.module.css";
 
 interface PaginationProps {
   totalItems: number;

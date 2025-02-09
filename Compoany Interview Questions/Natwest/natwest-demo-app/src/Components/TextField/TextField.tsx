@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./textFilter.module.css";
+import classes from "./TextField.module.css";
 
-const TextFilter : React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
+const TextField : React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
     return (
       <input
         {...props}
@@ -11,4 +11,4 @@ const TextFilter : React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (prop
       />
     );
   }
-export default TextFilter;
+export default TextField;
