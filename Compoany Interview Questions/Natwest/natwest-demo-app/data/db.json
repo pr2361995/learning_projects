@@ -1,0 +1,121 @@
+{
+    "customers": [
+      {
+        "id": "CUST123456",
+        "firstName": "John",
+        "lastName": "Doe",
+        "dateOfBirth": "1990-05-15",
+        "gender": "Male",
+        "contactDetails": {
+          "email": "john.doe@example.com",
+          "phone": "+1-555-123-4567",
+          "address": {
+            "street": "123 Main Street",
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "postalCode": "600001",
+            "country": "India"
+          }
+        },
+        "identification": {
+          "idType": "Aadhar",
+          "idNumber": "1234-5678-9012"
+        },
+        "accountDetails": {
+          "accountNumber": "123456789012",
+          "accountType": "Savings",
+          "branch": "Chennai Main Branch",
+          "ifscCode": "TCSB0000123",
+          "balance": 25000.75,
+          "currency": "INR",
+          "openedDate": "2020-03-10",
+          "status": "Active",
+          "accountStatus": "Operational"
+        },
+        "kycStatus": "Verified",
+        "nominee": {
+          "name": "Jane Doe",
+          "relationship": "Spouse",
+          "contact": "+1-555-987-6543"
+        }
+      },
+      {
+        "id": "CUST789012",
+        "firstName": "Alice",
+        "lastName": "Smith",
+        "dateOfBirth": "1985-08-22",
+        "gender": "Female",
+        "contactDetails": {
+          "email": "alice.smith@example.com",
+          "phone": "+1-555-234-5678",
+          "address": {
+            "street": "456 Park Avenue",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "postalCode": "560001",
+            "country": "India"
+          }
+        },
+        "identification": {
+          "idType": "PAN",
+          "idNumber": "ABCDE1234F"
+        },
+        "accountDetails": {
+          "accountNumber": "987654321098",
+          "accountType": "Current",
+          "branch": "Bangalore City Branch",
+          "ifscCode": "TCSB0000456",
+          "balance": 500000.00,
+          "currency": "INR",
+          "openedDate": "2018-06-15",
+          "status": "Active",
+          "accountStatus": "Overdrawn"
+        },
+        "kycStatus": "Pending",
+        "nominee": {
+          "name": "Bob Smith",
+          "relationship": "Brother",
+          "contact": "+1-555-876-5432"
+        }
+      },
+      {
+        "id": "CUST345678",
+        "firstName": "Rahul",
+        "lastName": "Sharma",
+        "dateOfBirth": "1995-11-10",
+        "gender": "Male",
+        "contactDetails": {
+          "email": "rahul.sharma@example.com",
+          "phone": "+91-98765-43210",
+          "address": {
+            "street": "789 MG Road",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "postalCode": "400001",
+            "country": "India"
+          }
+        },
+        "identification": {
+          "idType": "Voter ID",
+          "idNumber": "MH1234567"
+        },
+        "accountDetails": {
+          "accountNumber": "112233445566",
+          "accountType": "Savings",
+          "branch": "Mumbai Central Branch",
+          "ifscCode": "TCSB0000789",
+          "balance": 15000.00,
+          "currency": "INR",
+          "openedDate": "2021-01-20",
+          "status": "Inactive",
+          "accountStatus": "Suspended"
+        },
+        "kycStatus": "Verified",
+        "nominee": {
+          "name": "Priya Sharma",
+          "relationship": "Sister",
+          "contact": "+91-91234-56789"
+        }
+      }
+    ]
+}
