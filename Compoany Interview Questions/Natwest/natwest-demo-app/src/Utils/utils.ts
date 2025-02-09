@@ -4,14 +4,14 @@ export type NestedKeys<T> = {
       : `${K & string}`
 }[keyof T];
 
-export function getCurrentPageNumber(previosPage:number | null,nextPage:number | null): number{
-  if((previosPage !== null) && nextPage === null)
-    return previosPage+1;
-  else if(previosPage !== null && nextPage !== null)
-    return  previosPage - nextPage;
-  else
-    return 1;
-}
+// export function getCurrentPageNumber(previosPage:number | null,nextPage:number | null): number{
+//   if((previosPage !== null) && nextPage === null)
+//     return previosPage+1;
+//   else if(previosPage !== null && nextPage !== null)
+//     return  previosPage - nextPage;
+//   else
+//     return 1;
+// }
 export function sortByNestedKey<T>(data: T[], key: NestedKeys<T>, isASC: boolean = true): T[] {
     return data.sort((a, b) => {
       const valueA = getNestedValue<T>(a, key);

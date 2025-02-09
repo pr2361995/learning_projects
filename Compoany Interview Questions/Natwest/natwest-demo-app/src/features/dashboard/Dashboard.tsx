@@ -101,7 +101,6 @@ function Dashboard() {
                             );
                         })}
                         <th className={classes.headcell}>
-                            Action
                             <div onClick={handleReset} style={{ cursor: 'pointer', textDecoration: 'underline' }}>
                                 Reset Filter
                             </div>
@@ -111,21 +110,13 @@ function Dashboard() {
                 <tbody>
                     {limitCustomers.map((customerDetail: Customer) => (
                         <tr key={customerDetail.id}>
-                            <td className={classes.datacell}>
-                                {customerDetail.firstName} {customerDetail.lastName}
-                            </td>
-                            <td className={classes.datacell}>
-                                {customerDetail.contactDetails.address.state}
-                            </td>
-                            <td className={classes.datacell}>
-                                {customerDetail.accountDetails.accountNumber}
-                            </td>
-                            <td className={classes.datacell}>
-                                {customerDetail.accountDetails.accountType}
-                            </td>
-                            <td className={classes.datacell}>
-                                {customerDetail.accountDetails.status}
-                            </td>
+                            {Object.keys(userTableDisplayer).map((key) => {
+                                const columnKey = userTableDisplayer[key as keyof typeof userTableDisplayer];
+                                const data =  getNestedValue<Customer>(customerDetail,columnKey)
+                                return <td className={classes.datacell}>
+                                            {typeof data === "string" && data}
+                                        </td>
+                            })}
                             <td className={classes.datacell}>
                                 <span style={{ cursor: "pointer" }}>
                                     <MdDelete color='#009879' onClick={() => handleDelete(customerDetail.id)} />

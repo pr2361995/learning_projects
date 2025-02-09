@@ -21,7 +21,7 @@ export const fetchCustomers = createAsyncThunk<CustomerAPIResponse, string | und
 export const removeCustomers = createAsyncThunk<string, string>(
     "customers/remove",
     async (id) => {
-        const customersResponse = await fetch(`${baseURL}/customer/${id}`, {
+        const customersResponse = await fetch(`${baseURL}/customers/${id}`, {
             method: "DELETE"
         });
 
