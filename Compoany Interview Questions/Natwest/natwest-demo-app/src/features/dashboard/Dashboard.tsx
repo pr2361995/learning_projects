@@ -7,7 +7,7 @@ import { removeCustomers } from './removeCustomerAPI';
 import { MdDelete } from "react-icons/md";
 import { FaSortUp, FaSortDown } from "react-icons/fa";
 import TextFilter from '../../Components/dashboard/TextFilter';
-import { getNestedValue, NestedKeys, sortByNestedKey } from '../../Utils/utils';
+import { getCurrentPageNumber, getNestedValue, NestedKeys, sortByNestedKey } from '../../Utils/utils';
 import Pagination from '../../Components/pagination/Pagination';
 
 
@@ -31,7 +31,7 @@ function Dashboard() {
     }
     
     useEffect(()=>{
-        dispatch(fetchCustomers(`?_page=${paging.pages}&_per_page=${paging.pageSize}`));
+        dispatch(fetchCustomers(`?_page=${getCurrentPageNumber(paging.isPrevious,paging.isNext)}&_per_page=${paging.pageSize}`));
     },[dispatch])
 
 
@@ -117,7 +117,7 @@ function Dashboard() {
             <Pagination 
                 totalItems={paging.total} 
                 itemsPerPage={paging.pageSize} 
-                currentPage={paging.pages}
+                currentPage={getCurrentPageNumber(paging.isPrevious,paging.isNext)}
                 onPageChange={(params: string) => dispatch(fetchCustomers(params))}
             />
         </>

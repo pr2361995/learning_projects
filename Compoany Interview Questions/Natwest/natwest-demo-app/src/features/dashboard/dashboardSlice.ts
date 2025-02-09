@@ -86,7 +86,7 @@ import { NestedKeys } from "../../Utils/utils";
         error     : string;
     }
 
-    type UnionNumbers = number | null
+    export type UnionNumbers = number | null
 
     export interface GetResponseType {
         first   :   UnionNumbers,
