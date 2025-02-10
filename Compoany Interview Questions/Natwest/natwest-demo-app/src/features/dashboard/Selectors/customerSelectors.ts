@@ -22,11 +22,6 @@ export const selectSortOptions = createDraftSafeSelector(
   (customersState) => customersState.sorting 
 );
 
-export const selectPaging = createDraftSafeSelector(
-  [selectCustomers],
-  (customersState) => customersState.paging
-);
-
 export const selectFilteredCustomers = createDraftSafeSelector(
   [selectAllCustomers, selectFilterOptions],
   (customers, filter) => {
