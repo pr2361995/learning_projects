@@ -1,6 +1,6 @@
 import { Customer, setPage, selectCustomers, userTableDisplayer } from './customerSlice';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useMemo, useState } from 'react';
 import { fetchCustomers, removeCustomers } from './customerAPI';
 import classes from './Dashboard.module.css';
 import { MdDelete } from "react-icons/md";
@@ -26,26 +26,31 @@ const defaultSortOptions: {
 function Dashboard() {
     const dispatch = useAppDispatch();
     const { customers, paging, indicator, error } = useAppSelector(selectCustomers);
-    const [filter, setFilter] = useState({ ...defaultFilter });
-    const [sortByColumn, setSortByColumn] = useState({ ...defaultSortOptions });
+    const [filter, setFilter]                     = useState({ ...defaultFilter });
+    const [sortByColumn, setSortByColumn]         = useState({ ...defaultSortOptions });
+    const startIndex    = (paging.currentPage - 1) * paging.pageSize;
+    const endIndex      = paging.currentPage * paging.pageSize;
+    
 
-    const filteredCustomers = customers.filter((customer) => {
-        const data = getNestedValue<Customer>(customer, filter.name);
-        return typeof data === "string"
-            ? filter.term.trim() !== "" 
-                ? data.toLowerCase().trim().includes(filter.term.trim().toLowerCase()) 
-                : true
-            : false;
-    });
+    const filteredCustomers = useMemo(() => 
+        customers.filter((customer) => {
+            const data = getNestedValue<Customer>(customer, filter.name);
+            return typeof data === "string"
+                ? filter.term.trim() !== "" 
+                    ? data.toLowerCase().trim().includes(filter.term.trim().toLowerCase()) 
+                    : true
+                : false;
+        })
+    ,[customers,filter]);
 
-    const orderedCustomers = sortByNestedKey<Customer>(filteredCustomers, sortByColumn.name, sortByColumn.isASC);
+    const orderedCustomers = useMemo(() =>
+        sortByNestedKey<Customer>(filteredCustomers, sortByColumn.name, sortByColumn.isASC)
+    ,[filteredCustomers,sortByColumn])
 
-    const startIndex = (paging.currentPage - 1) * paging.pageSize;
-    const endIndex = paging.currentPage * paging.pageSize;
     const limitCustomers = orderedCustomers.filter((_, index) => {
-        const cusIndex = index + 1;
-        return startIndex < cusIndex && cusIndex <= endIndex;
-    });
+            const cusIndex = index + 1;
+            return startIndex < cusIndex && cusIndex <= endIndex;
+    })
 
     const handleDelete = (id: string) => {
         const userConfirmed = confirm('Are you sure you want to delete this item?');

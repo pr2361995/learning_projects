@@ -78,8 +78,6 @@ export interface RootData {
     paging: {
         currentPage: number;
         pageSize: number;
-        totalPages: number;
-        totalItems: number;
     };
     error: string | null;
 }
@@ -87,8 +85,6 @@ export interface RootData {
 const defaultPaging = {
     currentPage : 1,
     pageSize    : 4,
-    totalPages  : 0,
-    totalItems  : 0,
 };
 
 const initialState: RootData = {
@@ -138,15 +134,11 @@ const customersSlice = createSlice({
                     state.customers = action.payload.data;
                     state.paging = {
                         ...state.paging,
-                        totalPages: action.payload.pages || 1,
-                        totalItems: action.payload.items || 0,
                     };
                 } else {
                     state.customers = action.payload;
                     state.paging = {
                         ...state.paging,
-                        totalPages: Math.ceil(action.payload.length / state.paging.pageSize),
-                        totalItems: action.payload.length,
                     };
                 }
             })
