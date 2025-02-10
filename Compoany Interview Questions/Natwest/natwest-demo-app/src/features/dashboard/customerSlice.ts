@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchCustomers, removeCustomers } from "./customerAPI";
-import { RootType } from "../../app/store/store";
 import { NestedKeys } from "../../Utils/utils";
 
 interface Address {
@@ -72,24 +71,54 @@ export interface Customer {
     nominee: Nominee;
 }
 
-export interface RootData {
-    customers: Customer[];
-    indicator: 'loading' | 'success' | 'failure' | 'idle';
-    paging: {
-        currentPage: number;
-        pageSize: number;
-    };
-    error: string | null;
+export interface Filter {
+    name: NestedKeys<Customer>;
+    term: string;
 }
 
-const defaultPaging = {
-    currentPage : 1,
-    pageSize    : 4,
+export interface Sorting{
+    name: NestedKeys<Customer>;
+    isASC: boolean;
+}
+
+export interface Paging {
+    currentPage : number;
+    pageSize    : number;
+    // firstItemIndex  : number;
+    // lastItemIndex   : number;
+}
+
+export interface RootData {
+    customers   : Customer[];
+    indicator   : 'loading' | 'success' | 'failure' | 'idle';
+    filter      : Filter;
+    sorting     : Sorting;
+    paging      : Paging;
+    error       : string | null;
+}
+
+const defaultFilter : Filter = {
+    name    : "id" , 
+    term    : ""
+};
+
+const defaultSorting : Sorting = {
+    name: "id", 
+    isASC: true
+}
+
+const defaultPaging : Paging = {
+    currentPage     : 1,
+    pageSize        : 4,
+    // firstItemIndex  : 0,
+    // lastItemIndex   : 3
 };
 
 const initialState: RootData = {
     customers   : [],
     paging      : defaultPaging,
+    filter      : defaultFilter,
+    sorting     : defaultSorting,
     indicator   : 'idle',
     error       : null
 };
@@ -121,6 +150,16 @@ const customersSlice = createSlice({
         setPage: (state, action: PayloadAction<number>) => {
             state.paging.currentPage = action.payload;
         },
+        setFilter : (state,action: PayloadAction<Filter>) => {
+            state.filter = {...action.payload};
+        },
+        setSorting : (state,action : PayloadAction<Sorting>) => {
+            state.sorting = {...action.payload}
+        },
+        setDefaultView : (state) => {
+            state.filter  = {...defaultFilter};
+            state.sorting = {...defaultSorting};
+        }     
     },
     extraReducers: (builder) => {
         builder
@@ -153,6 +192,9 @@ const customersSlice = createSlice({
             .addCase(removeCustomers.fulfilled, (state, action: PayloadAction<string>) => {
                 state.indicator = 'success';
                 state.customers = state.customers.filter((customer) => customer.id !== action.payload);
+                const startIndex = (state.paging.currentPage - 1) * state.paging.pageSize;
+                if(state.customers.length <= startIndex)
+                    state.paging.currentPage -= 1; 
             })
             .addCase(removeCustomers.rejected, (state, action) => {
                 state.indicator = 'failure';
@@ -161,9 +203,6 @@ const customersSlice = createSlice({
     },
 });
 
-export const { setPage } = customersSlice.actions;
+export const { setPage, setFilter, setSorting, setDefaultView } = customersSlice.actions;
 
 export default customersSlice.reducer;
-
-export const selectCustomers = (state: RootType) => state.customers;
-export const selectIndicator = (state: RootType) => state.customers.indicator;

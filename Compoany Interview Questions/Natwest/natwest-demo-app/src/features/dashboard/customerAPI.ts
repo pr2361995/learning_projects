@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { CustomerAPIResponse, selectIndicator } from "./customerSlice";
+import { CustomerAPIResponse } from "./customerSlice";
 import { Customer } from "./customerSlice";
 import { RootType } from "../../app/store/store";
+import { selectIndicator } from "./Selectors/customerSelectors";
 const baseURL = import.meta.env.VITE_API_URL
 
 export const fetchCustomers = createAsyncThunk<CustomerAPIResponse, string | undefined,{state : RootType}>(
