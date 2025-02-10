@@ -1,4 +1,4 @@
-import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import { configureStore, ThunkAction, UnknownAction } from "@reduxjs/toolkit";
 import cutomersSlice from "../../features/dashboard/customerSlice";
 
 export const store = configureStore({
@@ -8,11 +8,11 @@ export const store = configureStore({
 })
 
 
-export type AppStore = typeof store;
+export type AppStore    = typeof store;
 export type AppDispatch = typeof store.dispatch 
-export type RootType  =  ReturnType<AppStore['getState']>
-export type AppThunk<ThunkReturnType = void> = ThunkAction<
-    ThunkReturnType,
+export type RootType    =  ReturnType<typeof store.getState>
+export type AppThunk    = ThunkAction<
+    void,
     RootType,
     unknown,
-    Action>
+    UnknownAction>

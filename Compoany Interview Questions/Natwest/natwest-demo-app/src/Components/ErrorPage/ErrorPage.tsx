@@ -2,7 +2,7 @@ import classes from './ErrorPage.module.css'
 
 interface ErrorPageProps {
   message: string;
-  onRetry?: () => void;  // Optional retry function in case the user wants to try again
+  onRetry?: () => void;
 }
 
 const ErrorPage = ({ message, onRetry }: ErrorPageProps) => {

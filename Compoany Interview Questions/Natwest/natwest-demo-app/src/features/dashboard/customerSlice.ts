@@ -81,37 +81,37 @@ export interface RootData {
         totalPages: number;
         totalItems: number;
     };
-    error: string;
+    error: string | null;
 }
 
 const defaultPaging = {
-    currentPage: 1,
-    pageSize: 4,
-    totalPages: 0,
-    totalItems: 0,
+    currentPage : 1,
+    pageSize    : 4,
+    totalPages  : 0,
+    totalItems  : 0,
 };
 
 const initialState: RootData = {
-    customers: [],
-    paging: defaultPaging,
-    indicator: 'idle',
-    error: ''
+    customers   : [],
+    paging      : defaultPaging,
+    indicator   : 'idle',
+    error       : null
 };
 
 export const userTableDisplayer = {
-    accHolderName: 'firstName' as NestedKeys<Customer>,
+    accHolderName   : 'firstName' as NestedKeys<Customer>,
     accHolderAddress: 'contactDetails.address.state' as NestedKeys<Customer>,
-    accNumber: 'accountDetails.accountNumber' as NestedKeys<Customer>,
-    accType: 'accountDetails.accountType' as NestedKeys<Customer>,
-    accStatus: 'accountDetails.status' as NestedKeys<Customer>,
+    accNumber       : 'accountDetails.accountNumber' as NestedKeys<Customer>,
+    accType         : 'accountDetails.accountType' as NestedKeys<Customer>,
+    accStatus       : 'accountDetails.status' as NestedKeys<Customer>,
 };
 
 export type CustomerAPIResponse = 
   | { 
       first: number | null; 
-      prev: number | null; 
-      next: number | null; 
-      last: number | null; 
+      prev: number  | null; 
+      next: number  | null; 
+      last: number  | null; 
       pages: number | null; 
       items: number | null; 
       data: Customer[]; 
@@ -130,7 +130,7 @@ const customersSlice = createSlice({
         builder
             .addCase(fetchCustomers.pending, (state) => {
                 state.indicator = 'loading';
-                state.error = '';
+                state.error = null;
             })
             .addCase(fetchCustomers.fulfilled, (state, action: PayloadAction<CustomerAPIResponse>) => {
                 state.indicator = 'success';
@@ -156,7 +156,7 @@ const customersSlice = createSlice({
             })
             .addCase(removeCustomers.pending, (state) => {
                 state.indicator = 'loading';
-                state.error = '';
+                state.error = null;
             })
             .addCase(removeCustomers.fulfilled, (state, action: PayloadAction<string>) => {
                 state.indicator = 'success';
@@ -174,3 +174,4 @@ export const { setPage } = customersSlice.actions;
 export default customersSlice.reducer;
 
 export const selectCustomers = (state: RootType) => state.customers;
+export const selectIndicator = (state: RootType) => state.customers.indicator;

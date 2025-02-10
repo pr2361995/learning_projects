@@ -79,45 +79,6 @@
       }
     },
     {
-      "id": "CUST345678",
-      "firstName": "Rahul",
-      "lastName": "Sharma",
-      "dateOfBirth": "1995-11-10",
-      "gender": "Male",
-      "contactDetails": {
-        "email": "rahul.sharma@example.com",
-        "phone": "+91-98765-43210",
-        "address": {
-          "street": "789 MG Road",
-          "city": "Mumbai",
-          "state": "Maharashtra",
-          "postalCode": "400001",
-          "country": "India"
-        }
-      },
-      "identification": {
-        "idType": "Voter ID",
-        "idNumber": "MH1234567"
-      },
-      "accountDetails": {
-        "accountNumber": "112233445566",
-        "accountType": "Savings",
-        "branch": "Mumbai Central Branch",
-        "ifscCode": "TCSB0000789",
-        "balance": 15000,
-        "currency": "INR",
-        "openedDate": "2021-01-20",
-        "status": "Inactive",
-        "accountStatus": "Suspended"
-      },
-      "kycStatus": "Verified",
-      "nominee": {
-        "name": "Priya Sharma",
-        "relationship": "Sister",
-        "contact": "+91-91234-56789"
-      }
-    },
-    {
       "id": "CUST456789",
       "firstName": "Vikram",
       "lastName": "Rao",
@@ -313,42 +274,42 @@
       }
     },
     {
-      "id": "CUST901345",
-      "firstName": "Aditi",
-      "lastName": "Singh",
-      "dateOfBirth": "1998-02-11",
-      "gender": "Female",
+      "id": "CUST012456",
+      "firstName": "Rohan",
+      "lastName": "Mehra",
+      "dateOfBirth": "1991-06-20",
+      "gender": "Male",
       "contactDetails": {
-        "email": "aditi.singh@example.com",
-        "phone": "+91-94567-89012",
+        "email": "rohan.mehra@example.com",
+        "phone": "+91-95678-90123",
         "address": {
-          "street": "56 Rajaji Street",
-          "city": "Hyderabad",
-          "state": "Telangana",
-          "postalCode": "500001",
+          "street": "78 Residency Road",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "postalCode": "411001",
           "country": "India"
         }
       },
       "identification": {
-        "idType": "Voter ID",
-        "idNumber": "AP2345678"
+        "idType": "Aadhar",
+        "idNumber": "2345-6789-0123"
       },
       "accountDetails": {
-        "accountNumber": "778899001122",
+        "accountNumber": "889900112233",
         "accountType": "Savings",
-        "branch": "Hyderabad City Branch",
-        "ifscCode": "TCSB0000901",
-        "balance": 35000,
+        "branch": "Pune Central Branch",
+        "ifscCode": "TCSB0000124",
+        "balance": 42000,
         "currency": "INR",
-        "openedDate": "2023-02-05",
-        "status": "Active",
-        "accountStatus": "Operational"
+        "openedDate": "2020-09-14",
+        "status": "Inactive",
+        "accountStatus": "Dormant"
       },
-      "kycStatus": "Pending",
+      "kycStatus": "Verified",
       "nominee": {
-        "name": "Rajesh Singh",
-        "relationship": "Father",
-        "contact": "+91-91234-56783"
+        "name": "Anita Mehra",
+        "relationship": "Mother",
+        "contact": "+91-93456-78902"
       }
     }
   ]

@@ -6,7 +6,7 @@ import classes from './Dashboard.module.css';
 import { MdDelete } from "react-icons/md";
 import TextFilter from '../../Components/TextField/TextField';
 import { getNestedValue, NestedKeys, sortByNestedKey } from '../../Utils/utils';
-import Pagination from '../../Components/pagination/Pagination';
+import Pagination from '../../Components/Pagination/Pagination';
 import Sort from '../../Components/Sorting/Sort';
 import ErrorPage from '../../Components/ErrorPage/ErrorPage';
 import LoadingOverlay from '../../Components/Loading/LoadingOverlay';
@@ -72,10 +72,11 @@ function Dashboard() {
     }, [dispatch, filter, sortByColumn]);
 
     useEffect(() => {
-        dispatch(fetchCustomers(''));
-    }, [dispatch]);
+        if(indicator === "idle")
+            dispatch(fetchCustomers(''));
+    }, [dispatch,indicator]);
 
-    if (indicator === "failure") {
+    if (indicator === "failure" && error !== null) {
         return <ErrorPage message={error} onRetry={handleRetry} />;
     }
 
@@ -113,14 +114,15 @@ function Dashboard() {
                             {Object.keys(userTableDisplayer).map((key) => {
                                 const columnKey = userTableDisplayer[key as keyof typeof userTableDisplayer];
                                 const data =  getNestedValue<Customer>(customerDetail,columnKey)
-                                return <td className={classes.datacell}>
+                                return <td key={key} className={classes.datacell}>
                                             {typeof data === "string" && data}
                                         </td>
                             })}
                             <td className={classes.datacell}>
-                                <span style={{ cursor: "pointer" }} title='Remove'>
-                                    <MdDelete color='#009879' onClick={() => handleDelete(customerDetail.id)} />
-                                </span>
+                                <button style={{background:"white"}} title='Remove' disabled={indicator === "loading"} onClick={() => handleDelete(customerDetail.id)}>
+                                    <MdDelete 
+                                        color='#009879' />
+                                </button>
                             </td>
                         </tr>
                     ))}
