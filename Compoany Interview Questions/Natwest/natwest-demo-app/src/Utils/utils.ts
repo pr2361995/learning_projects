@@ -1,17 +1,13 @@
+import { SerializedError } from "@reduxjs/toolkit";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+
 export type NestedKeys<T> = {
     [K in keyof T]: T[K] extends object
       ? `${K & string}` | `${K & string}.${NestedKeys<T[K]>}`
       : `${K & string}`
 }[keyof T];
 
-// export function getCurrentPageNumber(previosPage:number | null,nextPage:number | null): number{
-//   if((previosPage !== null) && nextPage === null)
-//     return previosPage+1;
-//   else if(previosPage !== null && nextPage !== null)
-//     return  previosPage - nextPage;
-//   else
-//     return 1;
-// }
+
 export function sortByNestedKey<T>(data: T[], key: NestedKeys<T>, isASC: boolean = true): T[] {
     return data.sort((a, b) => {
       const valueA = getNestedValue<T>(a, key);
@@ -47,3 +43,25 @@ export function getNestedValue<T>(obj: T, path: NestedKeys<T>): unknown | undefi
     }
     return result;
   }
+
+// error handling
+export function isFetchBaseQueryError(error: unknown): error is FetchBaseQueryError {
+    return typeof error === 'object' && error !== null && 'status' in error;
+}
+
+  
+export function renderFetchBaseQueryError(error: FetchBaseQueryError) {
+  if (typeof error.status === 'number') {
+    return error.status.toString()
+  } else {
+    return error.status.toString()
+  }
+}
+
+export function renderSerializedError(error: SerializedError) {
+  return `
+    ${error.name && error.name}
+    ${error.message && error.message}
+    ${error.stack && error.stack}
+    `
+}

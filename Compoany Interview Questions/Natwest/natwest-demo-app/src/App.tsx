@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux'
 import './App.css'
 import CustomersDashboard from './features/dashboard/CustomersDashboard'
-import { store } from './app/store/store'
+import { store } from './app/store'
 
 function App() {
 

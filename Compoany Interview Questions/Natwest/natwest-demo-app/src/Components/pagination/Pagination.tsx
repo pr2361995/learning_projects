@@ -19,14 +19,14 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, itemsPerPage, curre
 
   const renderPageNumbers = () => {
     const pages = [];
-    for (let i = 1; i <= totalPages; i++) {
+    for (let pageCount = 1; pageCount <= totalPages; pageCount++) {
       pages.push(
         <button
-          key={i}
-          className={`${classes.pageButton} ${currentPage === i ? classes.activePage : classes.inactivePage}`}
-          onClick={() => handlePageChange(i)}
+          key={pageCount}
+          className={`${classes.pageButton} ${currentPage === pageCount ? classes.activePage : classes.inactivePage}`}
+          onClick={() => handlePageChange(pageCount)}
         >
-          {i}
+          {pageCount}
         </button>
       );
     }

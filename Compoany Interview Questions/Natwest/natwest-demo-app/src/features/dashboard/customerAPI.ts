@@ -1,8 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { CustomerAPIResponse } from "./customerSlice";
-import { Customer } from "./customerSlice";
-import { RootType } from "../../app/store/store";
-import { selectIndicator } from "./Selectors/customerSelectors";
+import { RootType } from "../../app/store";
+import { Customer, CustomerAPIResponse } from "./customer.types";
+// import { selectIndicator } from "./Selectors/customerSelectors";
 const baseURL = import.meta.env.VITE_API_URL
 
 export const fetchCustomers = createAsyncThunk<CustomerAPIResponse, string | undefined,{state : RootType}>(
@@ -18,16 +17,17 @@ export const fetchCustomers = createAsyncThunk<CustomerAPIResponse, string | und
 
         const customerData = await customersResponse.json();
         return customerData;
-    },
-    {
-        condition(_, thunkApi) {
-            const pendingStatus = selectIndicator(thunkApi.getState())
-            if (pendingStatus !== 'idle') {
-                return false;
-            }
-            return true;
-        }
     }
+    // ,
+    // {
+    //     condition(_, thunkApi) {
+    //         const pendingStatus = selectIndicator(thunkApi.getState())
+    //         if (pendingStatus !== 'idle') {
+    //             return false;
+    //         }
+    //         return true;
+    //     }
+    // }
 );
 
 export const removeCustomers = createAsyncThunk<string, string>(

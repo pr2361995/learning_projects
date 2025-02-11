@@ -1,45 +1,6 @@
 {
   "customers": [
     {
-      "id": "CUST123456",
-      "firstName": "John",
-      "lastName": "Doe",
-      "dateOfBirth": "1990-05-15",
-      "gender": "Male",
-      "contactDetails": {
-        "email": "john.doe@example.com",
-        "phone": "+1-555-123-4567",
-        "address": {
-          "street": "123 Main Street",
-          "city": "Chennai",
-          "state": "Tamil Nadu",
-          "postalCode": "600001",
-          "country": "India"
-        }
-      },
-      "identification": {
-        "idType": "Aadhar",
-        "idNumber": "1234-5678-9012"
-      },
-      "accountDetails": {
-        "accountNumber": "123456789012",
-        "accountType": "Savings",
-        "branch": "Chennai Main Branch",
-        "ifscCode": "TCSB0000123",
-        "balance": 25000.75,
-        "currency": "INR",
-        "openedDate": "2020-03-10",
-        "status": "Active",
-        "accountStatus": "Operational"
-      },
-      "kycStatus": "Verified",
-      "nominee": {
-        "name": "Jane Doe",
-        "relationship": "Spouse",
-        "contact": "+1-555-987-6543"
-      }
-    },
-    {
       "id": "CUST789012",
       "firstName": "Alice",
       "lastName": "Smith",
@@ -79,81 +40,42 @@
       }
     },
     {
-      "id": "CUST456789",
-      "firstName": "Vikram",
-      "lastName": "Rao",
-      "dateOfBirth": "1988-03-25",
+      "id": "CUST345678",
+      "firstName": "Rahul",
+      "lastName": "Sharma",
+      "dateOfBirth": "1995-11-10",
       "gender": "Male",
       "contactDetails": {
-        "email": "vikram.rao@example.com",
-        "phone": "+91-99876-54321",
+        "email": "rahul.sharma@example.com",
+        "phone": "+91-98765-43210",
         "address": {
-          "street": "123 Brigade Road",
-          "city": "Bangalore",
-          "state": "Karnataka",
-          "postalCode": "560025",
+          "street": "789 MG Road",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "postalCode": "400001",
           "country": "India"
         }
       },
       "identification": {
-        "idType": "Driving License",
-        "idNumber": "KA987654321"
+        "idType": "Voter ID",
+        "idNumber": "MH1234567"
       },
       "accountDetails": {
-        "accountNumber": "223344556677",
+        "accountNumber": "112233445566",
         "accountType": "Savings",
-        "branch": "Bangalore South Branch",
-        "ifscCode": "TCSB0000345",
-        "balance": 32000,
+        "branch": "Mumbai Central Branch",
+        "ifscCode": "TCSB0000789",
+        "balance": 15000,
         "currency": "INR",
-        "openedDate": "2019-09-12",
-        "status": "Active",
-        "accountStatus": "Operational"
+        "openedDate": "2021-01-20",
+        "status": "Inactive",
+        "accountStatus": "Suspended"
       },
       "kycStatus": "Verified",
       "nominee": {
-        "name": "Anjali Rao",
-        "relationship": "Wife",
-        "contact": "+91-99887-65432"
-      }
-    },
-    {
-      "id": "CUST567890",
-      "firstName": "Sneha",
-      "lastName": "Patel",
-      "dateOfBirth": "1992-12-05",
-      "gender": "Female",
-      "contactDetails": {
-        "email": "sneha.patel@example.com",
-        "phone": "+91-90000-12345",
-        "address": {
-          "street": "456 Nehru Street",
-          "city": "Ahmedabad",
-          "state": "Gujarat",
-          "postalCode": "380001",
-          "country": "India"
-        }
-      },
-      "identification": {
-        "idType": "Aadhar",
-        "idNumber": "4567-8901-2345"
-      },
-      "accountDetails": {
-        "accountNumber": "334455667788",
-        "accountType": "Current",
-        "branch": "Ahmedabad Main Branch",
-        "ifscCode": "TCSB0000567",
-        "balance": 48000.5,
-        "currency": "INR",
-        "openedDate": "2017-04-18",
-        "status": "Active",
-        "accountStatus": "Operational"
-      },
-      "kycStatus": "Pending",
-      "nominee": {
-        "name": "Raj Patel",
-        "relationship": "Father",
-        "contact": "+91-98765-43210"
+        "name": "Priya Sharma",
+        "relationship": "Sister",
+        "contact": "+91-91234-56789"
       }
     },
     {
@@ -274,42 +196,42 @@
       }
     },
     {
-      "id": "CUST012456",
-      "firstName": "Rohan",
-      "lastName": "Mehra",
-      "dateOfBirth": "1991-06-20",
-      "gender": "Male",
+      "id": "CUST901345",
+      "firstName": "Aditi",
+      "lastName": "Singh",
+      "dateOfBirth": "1998-02-11",
+      "gender": "Female",
       "contactDetails": {
-        "email": "rohan.mehra@example.com",
-        "phone": "+91-95678-90123",
+        "email": "aditi.singh@example.com",
+        "phone": "+91-94567-89012",
         "address": {
-          "street": "78 Residency Road",
-          "city": "Pune",
-          "state": "Maharashtra",
-          "postalCode": "411001",
+          "street": "56 Rajaji Street",
+          "city": "Hyderabad",
+          "state": "Telangana",
+          "postalCode": "500001",
           "country": "India"
         }
       },
       "identification": {
-        "idType": "Aadhar",
-        "idNumber": "2345-6789-0123"
+        "idType": "Voter ID",
+        "idNumber": "AP2345678"
       },
       "accountDetails": {
-        "accountNumber": "889900112233",
+        "accountNumber": "778899001122",
         "accountType": "Savings",
-        "branch": "Pune Central Branch",
-        "ifscCode": "TCSB0000124",
-        "balance": 42000,
+        "branch": "Hyderabad City Branch",
+        "ifscCode": "TCSB0000901",
+        "balance": 35000,
         "currency": "INR",
-        "openedDate": "2020-09-14",
-        "status": "Inactive",
-        "accountStatus": "Dormant"
+        "openedDate": "2023-02-05",
+        "status": "Active",
+        "accountStatus": "Operational"
       },
-      "kycStatus": "Verified",
+      "kycStatus": "Pending",
       "nominee": {
-        "name": "Anita Mehra",
-        "relationship": "Mother",
-        "contact": "+91-93456-78902"
+        "name": "Rajesh Singh",
+        "relationship": "Father",
+        "contact": "+91-91234-56783"
       }
     }
   ]

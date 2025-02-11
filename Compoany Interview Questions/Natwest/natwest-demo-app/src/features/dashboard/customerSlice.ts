@@ -1,101 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchCustomers, removeCustomers } from "./customerAPI";
-import { NestedKeys } from "../../Utils/utils";
-
-interface Address {
-    street: string;
-    city: string;
-    state: string;
-    postalCode: string;
-    country: string;
-}
-
-interface ContactDetails {
-    email: string;
-    phone: string;
-    address: Address;
-}
-
-interface Identification {
-    idType: string;
-    idNumber: string;
-}
-
-enum AccountType {
-    'Savings', 
-    'Current'
-}
-
-export enum Status {
-    'Active' = 'Active', 
-    'Inactive' = 'Inactive', 
-    'Closed' = 'Closed' 
-}
-
-enum AccountStatus {
-    'Operational', 
-    'Overdrawn', 
-    'Suspended', 
-    'Dormant', 
-    'Closed'
-}
-
-interface AccountDetails {
-    accountNumber: string;
-    accountType: AccountType; 
-    branch: string;
-    ifscCode: string;
-    balance: number;
-    currency: string;
-    openedDate: string; 
-    status: Status;
-    accountStatus: AccountStatus
-}
-
-interface Nominee {
-    name: string;
-    relationship: string;
-    contact: string;
-}
-
-export interface Customer {
-    id: string;
-    firstName: string;
-    lastName: string;
-    dateOfBirth: string; 
-    gender: 'Male' | 'Female' | 'Other';
-    contactDetails: ContactDetails;
-    identification: Identification;
-    accountDetails: AccountDetails;
-    kycStatus: 'Verified' | 'Pending' | 'Rejected';
-    nominee: Nominee;
-}
-
-export interface Filter {
-    name: NestedKeys<Customer>;
-    term: string;
-}
-
-export interface Sorting{
-    name: NestedKeys<Customer>;
-    isASC: boolean;
-}
-
-export interface Paging {
-    currentPage : number;
-    pageSize    : number;
-    // firstItemIndex  : number;
-    // lastItemIndex   : number;
-}
-
-export interface RootData {
-    customers   : Customer[];
-    indicator   : 'loading' | 'success' | 'failure' | 'idle';
-    filter      : Filter;
-    sorting     : Sorting;
-    paging      : Paging;
-    error       : string | null;
-}
+import { NestedKeys } from "../../utils/utils";
+import { 
+    Customer, 
+    Filter, 
+    Sorting, 
+    Paging, 
+    RootData, 
+    CustomerAPIResponse 
+} from "./customer.types";
 
 const defaultFilter : Filter = {
     name    : "id" , 
@@ -110,8 +23,6 @@ const defaultSorting : Sorting = {
 const defaultPaging : Paging = {
     currentPage     : 1,
     pageSize        : 4,
-    // firstItemIndex  : 0,
-    // lastItemIndex   : 3
 };
 
 const initialState: RootData = {
@@ -124,23 +35,12 @@ const initialState: RootData = {
 };
 
 export const userTableDisplayer = {
-    accHolderName   : 'firstName' as NestedKeys<Customer>,
-    accNumber       : 'accountDetails.accountNumber' as NestedKeys<Customer>,
-    accType         : 'accountDetails.accountType' as NestedKeys<Customer>,
-    accStatus       : 'accountDetails.status' as NestedKeys<Customer>,
+    accHolderName    : 'firstName' as NestedKeys<Customer>,
+    accHolderAddress : "contactDetails.address.state" as NestedKeys<Customer>,
+    accNumber        : 'accountDetails.accountNumber' as NestedKeys<Customer>,
+    accType          : 'accountDetails.accountType' as NestedKeys<Customer>,
+    accStatus        : 'accountDetails.status' as NestedKeys<Customer>,
 };
-
-export type CustomerAPIResponse = 
-  | { 
-      first: number | null; 
-      prev: number  | null; 
-      next: number  | null; 
-      last: number  | null; 
-      pages: number | null; 
-      items: number | null; 
-      data: Customer[]; 
-    }
-  | Customer[];
 
 const customersSlice = createSlice({
     name: 'customers',
