@@ -26,10 +26,10 @@ enum AccountType {
     'Current'
 }
 
-enum Status {
-    'Active', 
-    'Inactive', 
-    'Closed'
+export enum Status {
+    'Active' = 'Active', 
+    'Inactive' = 'Inactive', 
+    'Closed' = 'Closed' 
 }
 
 enum AccountStatus {
@@ -125,7 +125,6 @@ const initialState: RootData = {
 
 export const userTableDisplayer = {
     accHolderName   : 'firstName' as NestedKeys<Customer>,
-    accHolderAddress: 'contactDetails.address.state' as NestedKeys<Customer>,
     accNumber       : 'accountDetails.accountNumber' as NestedKeys<Customer>,
     accType         : 'accountDetails.accountType' as NestedKeys<Customer>,
     accStatus       : 'accountDetails.status' as NestedKeys<Customer>,

@@ -24,7 +24,6 @@ function CustomersDashboard() {
     
     const limitedCustomers = orderedCustomers.slice(startIndex, endIndex); 
     
-
     const handleDelete = (id: string) => {
         const userConfirmed = confirm('Are you sure you want to delete this item?');
         if (userConfirmed) {
@@ -38,10 +37,6 @@ function CustomersDashboard() {
 
     function handleRetry() {
         dispatch(fetchCustomers(''));
-    }
-
-    function handleReset() {
-        dispatch(setDefaultView())
     }
 
     useEffect(() => {
@@ -79,30 +74,40 @@ function CustomersDashboard() {
                             );
                         })}
                         <th className={classes.headcell}>
-                            <div onClick={handleReset} style={{ cursor: 'pointer', textDecoration: 'underline' }}>
+                            <div onClick={()=> dispatch(setDefaultView())} style={{ cursor: 'pointer', textDecoration: 'underline' }}>
                                 Reset Filter
                             </div>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {limitedCustomers.map((customerDetail: Customer) => (
-                        <tr key={customerDetail.id}>
-                            {Object.keys(userTableDisplayer).map((key) => {
-                                const columnKey = userTableDisplayer[key as keyof typeof userTableDisplayer];
-                                const data =  getNestedValue<Customer>(customerDetail,columnKey)
-                                return <td key={key} className={classes.datacell}>
-                                            {typeof data === "string" && data}
-                                        </td>
-                            })}
-                            <td className={classes.datacell}>
-                                <button style={{background:"white"}} title='Remove' disabled={indicator === "loading"} onClick={() => handleDelete(customerDetail.id)}>
-                                    <MdDelete 
-                                        color='#009879' />
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
+                    {limitedCustomers.map((customerDetail: Customer) => { 
+                        return (
+                            <tr key={customerDetail.id}>
+                                {
+                                    Object.keys(userTableDisplayer).map((key) => {
+                                        const columnKey = userTableDisplayer[key as keyof typeof userTableDisplayer];
+                                        const data =  getNestedValue<Customer>(customerDetail,columnKey)
+                                        return <td key={key} className={classes.datacell}>
+                                                    {typeof data === "string" && data}
+                                                </td>
+                                    })
+                                }
+                                <td className={classes.datacell}>
+                                    {
+                                        <button 
+                                            aria-label='Remove Button' 
+                                            style={{background:"white"}} 
+                                            title='Remove' 
+                                            disabled={indicator === "loading"} 
+                                            onClick={() => handleDelete(customerDetail.id)}>
+                                                <MdDelete 
+                                                    color='#009879' />
+                                        </button>
+                                    }
+                                </td>
+                            </tr>
+                    )})}
                 </tbody>
             </table>
             <Pagination

@@ -6,6 +6,7 @@ const TextField : React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props
         {...props}
         placeholder="Filter..."
         type="search"
+        aria-label="filter field"
         className={`${classes.inputbox} ${props.className}`}
       />
     );
