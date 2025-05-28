@@ -1,0 +1,3 @@
+The <dialog> element can also be closed by pressing the ESC key on the keyboard. In that case, the dialog will disappear but the state passed to the open prop (i.e., the modalIsOpen state) will not be set to false.
+
+what is the ouput of ref file

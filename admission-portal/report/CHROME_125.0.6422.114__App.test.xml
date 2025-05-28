@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="3"
+            tests="9">
+
+  <testsuite name="App.test"
+    errors="0" failures="3" hostname="" id="" package="App.test" skipped="0"
+    tests="9" time="66.89" timestamp="">
+  
+    <testcase name="Testing Signin Page for Applicant" classname="App.test" time="4.085" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Testing Login Page for Applicant" classname="App.test" time="2.627" assertions="6">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Testing Navbar in applicant page" classname="App.test" time="0.3200" assertions="6">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Testing Apply page of applicants" classname="App.test" time="2.860" assertions="9">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Testing Status page of applicants" classname="App.test" time="6.310" assertions="8">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+      <failure message="Testing if the URL is &#39;http://localhost:8002/&#39; in 5000ms - expected &#34;is &#39;http://localhost:8002/&#39;&#34; but got: &#34;http://localhost:8002/login&#34; (5409ms)">    at Testing Status page of applicants (C:\Users\2738980\Desktop\projects\c2_ab_9cbf_eae8_4548_97e4_cd8b7bd173ae_master\test\App.test.js:95:15)</failure>
+
+    
+    </testcase>
+  
+    <testcase name="Testing Login Page for Admin" classname="App.test" time="2.387" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Testing Navbar in admin page" classname="App.test" time="0.3860" assertions="6">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Testing Applications page of admin" classname="App.test" time="7.479" assertions="12">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+      <failure message="Timed out while waiting for element &lt;#approvedApplicationsTable&gt; to be present for 5000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (5383ms)">    at Testing Applications page of admin (C:\Users\2738980\Desktop\projects\c2_ab_9cbf_eae8_4548_97e4_cd8b7bd173ae_master\test\App.test.js:144:8)</failure>
+
+    
+    </testcase>
+  
+    <testcase name="Testing AddSeats page of admin" classname="App.test" time="6.978" assertions="3">
+
+    
+
+      <failure message="Testing if element &lt;#courseSelect &gt; option:nth-of-type(2)&gt; contains text &#39;Civil Engineering (Id: 1)&#39; in 5000ms - expected &#34;contains text &#39;Civil Engineering (Id: 1)&#39;&#34; but got: &#34;element could not be located&#34; (5430ms)">    at Testing AddSeats page of admin (C:\Users\2738980\Desktop\projects\c2_ab_9cbf_eae8_4548_97e4_cd8b7bd173ae_master\test\App.test.js:160:15)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
