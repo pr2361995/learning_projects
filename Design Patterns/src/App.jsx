@@ -3,10 +3,12 @@ import { AccordionItem } from "./components/Compound_component/Accordin/Accordio
 import Place from "./components/Render_props/SelectList/Place";
 import { PLACES } from "./components/Render_props/SelectList/places";
 import SearchableList from "./components/Render_props/SelectList/SearchableList";
+import Todo from "./components/Todo/Index";
 
 function App() {
   return <>
     <h1>React Patterns & Practices</h1>
+    <Todo/>
     <Accordion>
       <Accordion.Item id="section-1">
         <AccordionItem.Title title="Section 1"/>
